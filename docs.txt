@@ -1,0 +1,56 @@
+### Cercherò di capirci qualcosa sugli agenti
+
+Uno dei servizi più utilizzati è quello di LangChain
+
+- Il mio obiettivo è quello di realizzare un agente che interroghi
+il database di GBIF e mi restituisca:
+
+1) Una prima stima del numero di observation per pest
+2) Le fonti dei dati
+3) La tabella delle observation pulita in base al database scelto
+
+Cosa è LangChain?
+
+E' un framework che permette lo sviluppo di agenti appoggiandosi alle
+principali LLM sul mercato. Tra queste c'è Ollama, il vantaggio di 
+Ollama è che è open source, perchè non si appoggia ad un servizio esterno
+ma usa direttamente la ram del pc per fare girare il modello linguistico.
+Questo significa privacy, ma anche che sei limitato alla grandezza della
+tua memoria. 
+
+Per prima cosa installo LangChain (python >=3.10)
+
+pip install -U langchain
+
+Poi installo il modello linguistico di Ollama
+
+pip install -U langchain-ollama
+
+e fare il pull del modello
+
+ollama pull smollm:135m
+
+
+
+Devo impostare la API_KEY come variabile ambientale, per fare questo ho
+installato:
+
+pip install python-dotenv
+
+e creato un file chiamo api_key.env all'interno del quale ho incollato
+
+ANTHROPIC_API_KEY = 'my_api_key'
+
+che poi devo chiamare all'interno del mio file main.py
+
+Per usare i notebooK:
+
+crea un nuovo notebooK
+stai sicuro di essere nell'ambiente conda e installa jupyter
+python -m pip install ipykernel jupyter
+lancia jupyter con il comando juputer notebooK
+vai nel notebook e su kernel in alto a destra
+vai su connet to existing jupyter server
+copia l'indirizzo ip che è comparso lanciando jupyter
+non usare quel terminale ma aprine un altro parallelo
+
