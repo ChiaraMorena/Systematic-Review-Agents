@@ -30,7 +30,7 @@ e fare il pull del modello
 
 ollama pull smollm:135m
 
-
+pip install -U langchain-groq langchain-core langchain
 
 Devo impostare la API_KEY come variabile ambientale, per fare questo ho
 installato:
