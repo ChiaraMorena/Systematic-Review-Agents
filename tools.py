@@ -1,9 +1,17 @@
+import os
+import requests
+import pandas as pd
+import re
+
 ### FUNCTIONS ###
 
 #GET EPPO NAMES AND SYNONYMS
 
 def _get_eppo_names(scientific_name):
-    
+
+    # carica variabili globali
+    eppo_token = os.getenv('EPPO_API_KEY')
+
     headers = {'Accept': 'application/json', 'X-Api-Key': eppo_token}
     
     # 1. Get the EPPO code for the given name
@@ -44,6 +52,8 @@ def _get_eppo_names(scientific_name):
 
 def _get_scopus_string_and_count(list_of_names):    
 
+    scopus_token = os.getenv('SCOPUS_API_KEY')
+
     list_of_names = [name for name in list_of_names if bool(re.fullmatch(r"[A-Za-zÀ-ÿ0-9\s\.\,\-\'\(\)]+", name))]
 
     # 1. Build the search string
@@ -75,6 +85,8 @@ def _get_scopus_string_and_count(list_of_names):
 ##WOS BIBLIO FAST ANALYSIS ##
 
 def _get_wos_string_and_count(list_of_names):
+
+    wos_token = os.getenv('WOS_API_KEY')
 
     #filter out not european languages
     list_of_names = [name for name in list_of_names if bool(re.fullmatch(r"[A-Za-zÀ-ÿ0-9\s\.\,\-\'\(\)]+", name))]
@@ -111,7 +123,6 @@ def _get_wos_string_and_count(list_of_names):
 
 ## @TOOLS ###
 
-@tool
 def get_eppo_names(scientific_name: str) -> list:
     """
     MANDATORY FIRST STEP for any bibliometric analysis on an organism.
@@ -129,7 +140,6 @@ def get_eppo_names(scientific_name: str) -> list:
     names = list(_get_eppo_names(scientific_name))
     return f'The list of EPPO names for {scientific_name} is : {names}'
 
-@tool
 def get_wos_string_and_count(scientific_name: str) -> str:
     """
     Use the function _get_eppo_names to have a list of EPPO names and
@@ -148,7 +158,6 @@ def get_wos_string_and_count(scientific_name: str) -> str:
 
     return _get_wos_string_and_count(list_of_names)
 
-@tool
 def get_scopus_string_and_count(scientific_name: str) -> str:
     """
     Use the function _get_eppo_names to have a list of EPPO names and

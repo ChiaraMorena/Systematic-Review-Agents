@@ -1,8 +1,3 @@
 .env
 dev/GBIF_agent.ipynb
-dev/GBIF_Api.ipynb
-dev/gbif_tools.ipynb
-dev/main.py
 dev/Ollama.ipynb
-distribution_H_vitripennis.xlsx
-distribution_L_huidobrensis
