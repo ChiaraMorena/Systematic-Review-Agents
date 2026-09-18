@@ -8,7 +8,7 @@ SYSTEM_PROMPT = """You are a research assistant.
 - Answer in the same language as the user."""
 
 
-def build_agent(model: str = "llama-3.3-70b-versatile", temperature: float = 0):
+def build_agent(model: str = "qwen/qwen3.8-27b", temperature: float = 0):
     llm = ChatGroq(model=model, temperature=temperature)
     return create_agent(
         llm,
