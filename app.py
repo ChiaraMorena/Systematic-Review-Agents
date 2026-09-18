@@ -50,7 +50,7 @@ def server(input):
         #LLM setting
         chat_client = ChatGroq(
             api_key=current_key,
-            model="qwen/qwen3.6-27b",
+            model="qwen/qwen3.8-27b",
             system_prompt="""You are a research assistant.
                     - If the user asks for 'names' of an organism, use 'get_eppo_names' and stop. In this case don't exclude Non-Latin script synonyms.
                     - If the user asks for a 'search string' or 'number of papers' for Scopus, use get_scopus_string_and_count.
