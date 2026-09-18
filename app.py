@@ -15,8 +15,9 @@ welcome = """
 
 Here are a couple of suggestions:
 
-* <span class="suggestion">Can you give me all the EPPO names of Coccus viridis?</span>
-* <span class="suggestion submit">Can you give me the number of papers for Coccus viridis?</span>
+* <span class="suggestion">Can you give me all the EPPO names of <i>Coccus viridis</i>?</span>
+* <span class="suggestion submit">Can you give me the number of papers for <i>Coccus viridis</i>?</span>
+* <span class="suggestion submit">Can you give me the search string for <i>Coccus viridis</i>?</span>
 """
 
 #UI logic
