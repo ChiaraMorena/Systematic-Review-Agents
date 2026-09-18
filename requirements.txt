@@ -4,3 +4,4 @@ pandas==3.0.5
 python-dotenv==1.2.2
 requests==2.34.2
 shiny==1.4.0
+httpx
